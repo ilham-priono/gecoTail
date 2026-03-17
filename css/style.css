@@ -1,0 +1,124 @@
+/* ========================= APP WRAPPER ======================== */
+
+.app-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%; /* Hindari double 100vh */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================= REGION A (MAIN AREA) ========================= */
+
+.region-a {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ========================= SIDEBAR ======================== */
+
+.sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 55px;
+  transition:
+    width 0.5s ease,
+    border-radius 0.4s ease,
+    margin-left 0.4s ease,
+    margin-bottom 0.4s ease,
+    margin-top 0.4s ease;
+  overflow: hidden;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Expand on hover */
+.sidebar:hover {
+  width: 220px;
+  border-radius: 20px;
+  margin-left: 8px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+/* ========================= SIDEBAR LABEL ========================= */
+
+.sidebar-label {
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  transition:
+    opacity 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+/* Show label when sidebar expand */
+.sidebar:hover .sidebar-label {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover effect via nav-link (lebih tepat) */
+.sidebar .nav-link:hover .sidebar-label {
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+/* ========================= SIDEBAR ICON ========================= */
+
+/* Icon default state */
+.sidebar .nav-link i {
+  transition:
+    transform 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Saat menu di-hover */
+.sidebar .nav-link:hover i {
+  transform: scale(1.5);
+  padding-left: 8px;
+}
+
+/* ========================= ACTIVE STATE ======================== */
+
+/* Scoped supaya tidak bentrok global bootstrap */
+.sidebar .nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  color: var(--bs-success);
+  border-radius: 12px;
+}
+
+/* Active icon */
+.sidebar .nav-link.active i {
+  color: var(--bs-success);
+}
+
+/* ========================= MAIN CONTENT ======================== */
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  padding-left: 70px;
+}
+
+/* ========================= FOOTER ======================== */
+
+.region-b {
+  height: 40px;
+  margin: 0;
+}
+
+/* ========================= ANIMASI TEKS SAAT ONLOAD ======================== */
+/* ENTERPRISE LOADING STYLE */
+#submissionTextOverlay {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
